@@ -333,7 +333,6 @@ This is very common when fetching data from servers.
 * Used Symbols as object keys.
 * Updated and froze objects.
 * Added methods inside objects.
-* Used `this` keyword.
 * Worked with nested objects.
 * Merged multiple objects using `Object.assign()` and spread operator.
 * Explored important object methods.
@@ -342,4 +341,4 @@ This is very common when fetching data from servers.
 
 # Overall Day 07 Summary
 
-Today I explored JavaScript Objects in depth. I learned different ways to create objects, access and modify properties, use Symbols, add methods, work with nested objects, merge multiple objects, and use useful object methods. I also learned object destructuring, which makes code cleaner and easier to read. Finally, I got an introduction to APIs and understood how data is commonly exchanged using JSON format.
+Today I explored JavaScript Objects in depth. I learned different ways to create objects, access and modify properties, use Symbols, add methods, work with nested objects, merge multiple objects, and use useful object methods. I also learned object destructuring, which makes code cleaner and easier to read. Finally, I got basic concept APIs and understood how data is commonly exchanged using JSON format.
