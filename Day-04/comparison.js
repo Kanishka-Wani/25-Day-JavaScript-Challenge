@@ -17,6 +17,6 @@ console.log(undefined > 0);
 console.log(undefined == 0);
 console.log(undefined >= 0);
 
-// ===
+// === stictly checks and returns true if both value and datatyoe is same
 
 console.log( "2" === 2);
