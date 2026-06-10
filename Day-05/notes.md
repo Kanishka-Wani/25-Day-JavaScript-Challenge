@@ -170,7 +170,7 @@ myDate.toISOString()
 * Date object is used to work with dates and time.
 * new Date() creates the current date and time.
 * Different methods provide different date formats.
-* Useful for timestamps, scheduling, and displaying date/time information.
+* Useful for displaying date/time information.
 
 ---
 
