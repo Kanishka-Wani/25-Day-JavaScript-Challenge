@@ -1,312 +1,305 @@
-🚀 JavaScript Functions - Complete Guide
+##JavaScript Functions - Complete Notes 🚀
 
-«Functions are reusable blocks of code that help us avoid repetition and make programs easier to maintain.»
+##What is a Function?
 
----
+A function is a reusable block of code that performs a specific task.
 
-📌 What is a Function?
-
-Imagine you need to print your name 100 times.
-
-Without functions:
-
-console.log("Kanishka");
-console.log("Kanishka");
-console.log("Kanishka");
-
-With functions:
-
-function sayMyName() {
-    console.log("Kanishka");
+function welcomeCustomer() {
+    console.log("Welcome to AutoHub Motors");
 }
 
-sayMyName();
-
-✅ Write once, use anywhere.
+Think of a function as a machine that takes input, processes it, and gives output.
 
 ---
 
-🏗️ Function Structure
+Why Functions?
 
-function greet() {
-    console.log("Hello World");
+Without Functions:
+
+console.log("Welcome to AutoHub Motors");
+console.log("Welcome to AutoHub Motors");
+console.log("Welcome to AutoHub Motors");
+
+With Functions:
+
+function welcomeCustomer() {
+    console.log("Welcome to AutoHub Motors");
 }
 
-Breakdown
+welcomeCustomer();
 
-Part| Meaning
-function| Keyword
-greet| Function Name
-()| Parameters
-{}| Function Body
+Much cleaner and easier to maintain.
 
 ---
 
-▶️ Calling a Function
+Calling a Function
 
-Creating a function does nothing until it is called.
+Creating a function does not execute it.
 
-function greet() {
-    console.log("Hello");
+function welcomeCustomer() {
+    console.log("Welcome to AutoHub Motors");
 }
 
-greet();
-
-Output
-
-Hello
-
----
-
-🎯 Parameters vs Arguments
-
-function addTwoNumbers(num1, num2) {
-    console.log(num1 + num2);
-}
-
-Parameters
-
-num1
-num2
-
-Arguments
-
-addTwoNumbers(3, 5);
-
-3
-5
-
----
-
-🧪 How Arguments Change Output
-
-Numbers
-
-addTwoNumbers(3, 5);
+welcomeCustomer();
 
 Output:
 
-8
+Welcome to AutoHub Motors
 
 ---
 
-Number + String
+Function Parameters
 
-addTwoNumbers(3, "5");
+Parameters act as placeholders for values.
 
-Output:
-
-35
-
-⚠️ JavaScript converts the number into a string and joins them.
-
----
-
-Number + Null
-
-addTwoNumbers(3, null);
-
-Output:
-
-3
-
-Because:
-
-null → 0
-
----
-
-Number + Undefined
-
-addTwoNumbers(3, undefined);
-
-Output:
-
-NaN
-
-🚨 Undefined often causes unexpected results.
-
----
-
-🔄 Returning Values
-
-Without Return
-
-function addTwoNumbers(num1, num2) {
-    console.log(num1 + num2);
+function showCar(carName) {
+    console.log(carName);
 }
 
-You can see the output, but cannot store it.
+---
+
+Function Arguments
+
+Arguments are actual values passed to the function.
+
+showCar("Toyota Camry");
+
+Output:
+
+Toyota Camry
 
 ---
 
-With Return
+Parameters vs Arguments
 
-function addTwoNumbers(num1, num2) {
-    return num1 + num2;
+function showCar(carName) {
+    console.log(carName);
 }
 
-const result = addTwoNumbers(3, 5);
+Parameter:
 
-console.log(result);
+carName
 
-Output:
+Argument:
 
-8
-
-✅ Return sends data back.
+showCar("Honda City");
 
 ---
 
-⛔ Code After Return
+How Arguments Affect Output
 
-function test() {
-    return "Done";
-
-    console.log("Hello");
+function showCar(carName) {
+    console.log(carName);
 }
 
+String:
+
+showCar("Hyundai Verna");
+
 Output:
 
-Done
+Hyundai Verna
 
-The console.log never runs.
+Number:
+
+showCar(2025);
+
+Output:
+
+2025
+
+No Argument:
+
+showCar();
+
+Output:
+
+undefined
 
 ---
 
-🎁 Default Parameters
+Multiple Parameters
 
-function loginUserMessage(username = "Guest") {
-    return `${username} just logged in`;
+function carDetails(carName, price) {
+    console.log(`${carName} costs ₹${price}`);
 }
 
-No Argument
-
-loginUserMessage();
+carDetails("Toyota Camry", 4500000);
 
 Output:
 
-Guest just logged in
+Toyota Camry costs ₹4500000
 
 ---
 
-With Argument
+Return Keyword
 
-loginUserMessage("Kanishka");
+The return keyword sends a value back from a function.
+
+function calculatePrice(price, tax) {
+    return price + tax;
+}
+
+const finalPrice =
+    calculatePrice(1000000, 50000);
+
+console.log(finalPrice);
 
 Output:
 
-Kanishka just logged in
+1050000
 
 ---
 
-🛡️ Handling Missing Input
+Code After Return
 
-function loginUserMessage(username) {
+function calculatePrice(price, tax) {
+    return price + tax;
 
-    if (!username) {
-        console.log("Please enter username");
+    console.log("This will never run");
+}
+
+Anything after return is ignored.
+
+---
+
+Default Parameters
+
+function assignCustomer(
+    customerName = "Guest"
+) {
+    return `${customerName} booked a car`;
+}
+
+console.log(assignCustomer());
+
+Output:
+
+Guest booked a car
+
+---
+
+Checking Missing Values
+
+function assignCustomer(customerName) {
+
+    if (!customerName) {
+        console.log("Please enter customer name");
         return;
     }
 
-    return `${username} just logged in`;
+    return `${customerName} booked a car`;
 }
-
-Good practice for real projects.
 
 ---
 
-📦 Rest Operator (...)
+Rest Operator (...)
 
-Used when we don't know how many values will be passed.
+Used when the number of arguments is unknown.
 
-function calculateCartPrice(...prices) {
-    return prices;
+function selectedAccessories(
+    ...accessories
+) {
+    return accessories;
 }
 
-calculateCartPrice(100, 200, 300);
+console.log(
+    selectedAccessories(
+        "Dash Cam",
+        "Seat Cover",
+        "Alloy Wheels"
+    )
+);
 
 Output:
 
-[100, 200, 300]
+[
+  "Dash Cam",
+  "Seat Cover",
+  "Alloy Wheels"
+]
 
 ---
 
-🎯 Rest Operator with Multiple Parameters
+Rest Operator with Other Parameters
 
-function calculateCartPrice(val1, val2, ...prices) {
-    return prices;
+function cartItems(
+    customerName,
+    carName,
+    ...accessories
+) {
+    return accessories;
 }
 
-calculateCartPrice(100, 200, 300, 400);
+cartItems(
+    "Kanishka",
+    "Toyota Camry",
+    "Dash Cam",
+    "Seat Cover"
+);
 
 Output:
 
-[300, 400]
-
-What Happened?
-
-Value| Stored In
-100| val1
-200| val2
-300| prices
-400| prices
+[
+  "Dash Cam",
+  "Seat Cover"
+]
 
 ---
 
-🧑‍💻 Passing Objects to Functions
+Passing Objects to Functions
 
-const user = {
-    username: "Kanishka",
-    price: 999
+const car = {
+    name: "Honda City",
+    price: 1500000
 };
 
-function handleObject(anyObject) {
+function displayCar(carDetails) {
     console.log(
-        `Username is ${anyObject.username} and price is ${anyObject.price}`
+        `${carDetails.name} costs ₹${carDetails.price}`
     );
 }
 
-handleObject(user);
+displayCar(car);
 
 Output:
 
-Username is Kanishka and price is 999
+Honda City costs ₹1500000
 
 ---
 
-⚡ Passing Object Directly
+Passing Arrays to Functions
 
-handleObject({
-    username: "Rahul",
-    price: 199
-});
+const cars = [
+    "Toyota Camry",
+    "Honda City",
+    "Hyundai Verna"
+];
 
-Output:
-
-Username is Rahul and price is 199
-
----
-
-📚 Passing Arrays to Functions
-
-const myArray = [100, 200, 300];
-
-function returnSecondValue(arr) {
-    return arr[1];
+function firstCar(cars) {
+    return cars[0];
 }
 
-returnSecondValue(myArray);
+console.log(firstCar(cars));
 
 Output:
 
-200
+Toyota Camry
 
 ---
 
-⚡ Passing Array Directly
+Function Declaration
 
-returnSecondValue([10, 20, 30]);
+function calculateMileage(
+    distance,
+    fuel
+) {
+    return distance / fuel;
+}
+
+console.log(
+    calculateMileage(500, 25)
+);
 
 Output:
 
@@ -314,78 +307,62 @@ Output:
 
 ---
 
-🏗️ Function Declaration
-
-function addOne(num) {
-    return num + 1;
-}
-
-addOne(5);
-
-Output:
-
-6
-
----
-
-🏗️ Function Expression
-
-const addTwo = function(num) {
-    return num + 2;
-};
-
-addTwo(5);
-
-Output:
-
-7
-
----
-
-🚨 Hoisting Difference
-
-Function Declaration
-
-console.log(addOne(5));
-
-function addOne(num) {
-    return num + 1;
-}
-
-✅ Works
-
----
-
 Function Expression
 
-console.log(addTwo(5));
-
-const addTwo = function(num) {
-    return num + 2;
+const calculateEMI =
+function(amount) {
+    return amount / 12;
 };
 
-❌ Error
+console.log(
+    calculateEMI(240000)
+);
 
-Because function expressions are not hoisted like function declarations.
+Output:
+
+20000
 
 ---
 
-💡 Real World Usage
+Hoisting Difference
 
-Functions are everywhere:
+Function Declaration:
 
-- Login Systems
+console.log(calculateTax(1000));
+
+function calculateTax(amount) {
+    return amount * 0.18;
+}
+
+Works Successfully.
+
+Function Expression:
+
+console.log(calculateTax(1000));
+
+const calculateTax =
+function(amount) {
+    return amount * 0.18;
+};
+
+Throws an Error.
+
+---
+
+Real-World Uses
+
+Functions are commonly used in:
+
+- Vehicle Booking Systems
 - Payment Processing
+- Inventory Management
+- Authentication Systems
 - Form Validation
 - API Calls
-- Cart Calculations
-- Authentication
-
-Every major JavaScript application relies heavily on functions.
 
 ---
 
-📝 Quick Revision
+Quick Revision
 
 ✅ Functions make code reusable
 
@@ -395,9 +372,9 @@ Every major JavaScript application relies heavily on functions.
 
 ✅ Return sends data back
 
-✅ Default values prevent errors
+✅ Default parameters prevent undefined
 
-✅ Rest operator collects multiple values
+✅ Rest operator handles multiple arguments
 
 ✅ Objects and arrays can be passed into functions
 
@@ -405,6 +382,6 @@ Every major JavaScript application relies heavily on functions.
 
 ---
 
-🎯 One-Line Summary
+One-Line Summary
 
-«Functions are reusable blocks of code that accept input, perform operations, and optionally return output.»
+«Functions are reusable blocks of code that take input, perform an action, and optionally return a result.»
