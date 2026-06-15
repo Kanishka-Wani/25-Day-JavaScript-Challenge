@@ -34,8 +34,3 @@ const sum = numbers.reduce((acc, curr) => {
     return acc + curr;
 }, 0);
 
-<<<<<<< HEAD
-console.log("reduce sum:", sum);
-=======
-console.log("reduce sum:", sum);
->>>>>>> 6ef47a0 (Day-10: use of this keyword , arrow function, and iife)
